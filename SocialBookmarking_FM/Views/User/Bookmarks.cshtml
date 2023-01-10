@@ -35,6 +35,24 @@
                                 <div class="tm-list-item">
                                     <div class="tm-black-bg tm-list-item-text">
                                         <h3 class="tm-list-item-name">
+                                            <h6>@item.nu.UserName</h6>
+                                        </h3>
+                                        <hr>
+                                        <p class="tm-list-item-description"><a href="/Bookmark/Show/@item.b.Id"> @item.b.Title </a></p>
+                                        <hr>
+                                        <div>
+                                            <form class="form-inline" method="post" action="/Vote/Toggle/@item.b.Id">
+                                                <button type="submit" class="nav-link btn btn-link text-dark"><i class="fa fa-heart"></i> Like @item.b.rating</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                            @foreach (var item in ViewBag.bkmown)
+                            {
+                                <div class="tm-list-item">
+                                    <div class="tm-black-bg tm-list-item-text">
+                                        <h3 class="tm-list-item-name">
                                             <h6>@ViewBag.user.UserName</h6>
                                         </h3>
                                         <hr>

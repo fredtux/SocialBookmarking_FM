@@ -23,10 +23,13 @@ namespace SocialBookmarking_FM.Controllers
                 on col.Id equals bcol.CollectionId
                 join b in db.Bookmarks
                 on bcol.BookmarkId equals b.Id
-                select b
+                join nu in db.Users
+                on b.UserId equals nu.Id
+                select new { b, nu }
                 ).ToList();
 
             ViewBag.bkm = bkm;
+            ViewBag.bkmown = db.Bookmarks.Where(x => x.UserId == uid).ToList();
             ViewBag.user = db.Users.Where(x => x.UserName == uname).ToList()[0];
             
             ViewBag.userRole = (from x in db.UserRoles
